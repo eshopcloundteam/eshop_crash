@@ -48,10 +48,11 @@ class EshopCrashPlugin : FlutterPlugin, MethodCallHandler {
                 }
             }
             "crash" -> {
-//                crash()
+                crash()
             }
+
             "cpp_capture_message" -> {
-//                message()
+                message()
             }
             "platform_exception" -> {
                 result.success(Thread.currentThread().getStackTrace())
@@ -65,5 +66,15 @@ class EshopCrashPlugin : FlutterPlugin, MethodCallHandler {
 
     override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
         channel.setMethodCallHandler(null)
+    }
+
+    private external fun crash()
+    private external fun message()
+
+    companion object {
+        init {
+            Log.i("eshopcrashplugintag","loadLibrary native sample" );
+            System.loadLibrary("native-sample")
+        }
     }
 }
