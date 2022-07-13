@@ -7,19 +7,19 @@
 extern "C" {
 
 void willCrash() {
-    __android_log_print(ANDROID_LOG_WARN, TAG, "willCrash");
+    __android_log_print(ANDROID_LOG_WARN, TAG, "sowillCrash");
     char *ptr = 0;
     *ptr += 1;
 }
 
 
 void willCallAnother() {
-    __android_log_print(ANDROID_LOG_WARN, TAG, "willCallAnother");
+    __android_log_print(ANDROID_LOG_WARN, TAG, "sowillCallAnother");
     willCrash();
 }
 
 JNIEXPORT void JNICALL Java_com_example_eshop_1crash_EshopCrashPlugin_crash(JNIEnv *env, jclass cls) {
-    __android_log_print(ANDROID_LOG_WARN, TAG, "About to crash with a SEGFAULT in C++!");
+    __android_log_print(ANDROID_LOG_WARN, TAG, "About to crash with a SEGFAULT in so");
     willCallAnother();
 }
 

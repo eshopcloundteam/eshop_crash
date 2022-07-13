@@ -39,9 +39,19 @@ class _CrashDebugPageState extends State<CrashDebugPage> {
                 child: Text('kotlin throw uncaught exception')),
             ElevatedButton(
                 onPressed: () async {
+                  execute('throwJava');
+                },
+                child: Text('java throw uncaught exception')),
+            ElevatedButton(
+                onPressed: () async {
                   execute('crash');
                 },
-                child: Text('cpp throw uncaught exception'))
+                child: Text('cpp throw uncaught exception')),
+            ElevatedButton(
+                onPressed: () async {
+                  execute('crash_so');
+                },
+                child: Text('so throw uncaught exception'))
 
 
           ],

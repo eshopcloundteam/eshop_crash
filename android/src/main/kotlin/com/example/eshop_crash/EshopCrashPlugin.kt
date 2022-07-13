@@ -2,6 +2,7 @@ package com.example.eshop_crash
 
 import android.util.Log
 import androidx.annotation.NonNull
+import com.haier.nativeso.MainActivity
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
@@ -32,11 +33,15 @@ class EshopCrashPlugin : FlutterPlugin, MethodCallHandler {
                 return;
             }
             "throw" -> {
-
                 thread(isDaemon = true) {
                     throw Exception("Thrown from Kotlin!")
                 }
             }
+
+            "throwJava" -> {
+                CrashMaker().javaCException()
+            }
+
             "anr" -> {
                 Thread.sleep(6_000)
             }
@@ -49,6 +54,10 @@ class EshopCrashPlugin : FlutterPlugin, MethodCallHandler {
             }
             "crash" -> {
                 crash()
+            }
+
+            "crash_so" -> {
+                MainActivity().makeCrash();
             }
 
             "cpp_capture_message" -> {
