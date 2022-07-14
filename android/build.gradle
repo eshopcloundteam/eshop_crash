@@ -48,15 +48,12 @@ android {
         }
     }
 
-    // TODO: we need to fix CI as the version 21.1 (default) is not installed by default on
-    // GH Actions.
-    ndkVersion "21.4.7075529" // windows requires 21.4.7075529
 
-    externalNativeBuild {
-        cmake {
-            setPath("CMakeLists.txt")
-        }
-    }
+//    externalNativeBuild {
+//        cmake {
+//            setPath("CMakeLists.txt")
+//        }
+//    }
 }
 
 dependencies {
