@@ -2,7 +2,7 @@ package com.example.eshop_crash
 
 import android.util.Log
 import androidx.annotation.NonNull
-import com.haier.nativeso.MainActivity
+
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
@@ -57,7 +57,6 @@ class EshopCrashPlugin : FlutterPlugin, MethodCallHandler {
             }
 
             "crash_so" -> {
-                MainActivity().makeCrash();
             }
 
             "cpp_capture_message" -> {
@@ -83,7 +82,7 @@ class EshopCrashPlugin : FlutterPlugin, MethodCallHandler {
     companion object {
         init {
             Log.i("eshopcrashplugintag","loadLibrary native sample" );
-            System.loadLibrary("native-sample")
+//            System.loadLibrary("native-sample")
         }
     }
 }
